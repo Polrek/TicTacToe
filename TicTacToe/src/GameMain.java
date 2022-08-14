@@ -92,7 +92,7 @@ public class GameMain extends JPanel implements MouseListener{
 		board.paint(g);
 		
 		//set status bar message
-		if (currentState == GameState.Playing) {          
+		if (currentState == GameState.PLAYING) {          
 			statusBar.setForeground(Color.BLACK);          
 			if (currentPlayer == Player.CROSS) {   
 			
@@ -105,13 +105,13 @@ public class GameMain extends JPanel implements MouseListener{
 
 				
 			}       
-			} else if (currentState == GameState.Draw) {          
+			} else if (currentState == GameState.DRAW) {          
 				statusBar.setForeground(Color.RED);          
 				statusBar.setText("It's a Draw! Click to play again.");       
-			} else if (currentState == GameState.Cross_won) {          
+			} else if (currentState == GameState.CROSS_WON) {          
 				statusBar.setForeground(Color.RED);          
 				statusBar.setText("'X' Won! Click to play again.");       
-			} else if (currentState == GameState.Nought_won) {          
+			} else if (currentState == GameState.NOUGHT_WON) {          
 				statusBar.setForeground(Color.RED);          
 				statusBar.setText("'O' Won! Click to play again.");       
 			}
@@ -126,7 +126,7 @@ public class GameMain extends JPanel implements MouseListener{
 					board.cells[row][col].content = Player.EMPTY;           
 				}
 			}
-			 currentState = GameState.Playing;
+			 currentState = GameState.PLAYING;
 			 currentPlayer = Player.CROSS;
 		}
 		
@@ -165,7 +165,7 @@ public class GameMain extends JPanel implements MouseListener{
 		// Get the row and column clicked             
 		int rowSelected = mouseY / CELL_SIZE;             
 		int colSelected = mouseX / CELL_SIZE;               			
-		if (currentState == GameState.Playing) {                
+		if (currentState == GameState.PLAYING) {                
 			if (rowSelected >= 0 && rowSelected < ROWS && colSelected >= 0 && colSelected < COLS && board.cells[rowSelected][colSelected].content == Player.EMPTY) {
 				// move  
 				board.cells[rowSelected][colSelected].content = currentPlayer; 
