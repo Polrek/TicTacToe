@@ -44,7 +44,7 @@ public class GameMain extends JPanel implements MouseListener {
 		// listener to 'this'.
 		addMouseListener(this);
 		// TODO: Setup the status bar (JLabel) to display status message
-		statusBar = new JLabel("         ");
+		statusBar = new JLabel("Welcome to the game!"); //TODO: Unsure what to put here, get the game working properly then come back to it
 		statusBar.setFont(new Font(Font.DIALOG_INPUT, Font.BOLD, 14));
 		statusBar.setBorder(BorderFactory.createEmptyBorder(2, 5, 4, 5));
 		statusBar.setOpaque(true);
@@ -72,12 +72,13 @@ public class GameMain extends JPanel implements MouseListener {
 				JFrame frame = new JFrame(TITLE);
 
 				// create the new GameMain panel and add it to the frame
-				frame.add(new GameMain()); //or setContentPane?
+				GameMain panel = new GameMain();
+				frame.add(panel); //or setContentPane?
 
 				// set the default close operation of the frame to exit_on_close
-				frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); //use the jFrame oracle doc to try and understand what this is doing
+				frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); //TODO: use the jFrame oracle doc to try and understand what this is doing
 				frame.pack(); //Causes this Window to be sized to fit the preferred size and layouts of its subcomponents.
-				frame.setLocationRelativeTo(null); //sets the location on the screen. null means centred
+				frame.setLocationRelativeTo(null); //sets the location on the screen. null means centered
 				frame.setVisible(true); //makes the window visible (quite useful for this application)
 			}
 		});
@@ -138,10 +139,10 @@ public class GameMain extends JPanel implements MouseListener {
 	public void updateGame(Player thePlayer, int row, int col) {
 		// check for win after play
 		if (board.hasWon(thePlayer, row, col)) { //thePlayer is the current player
-
-			// TODO: check which player has won and update the currentstate to the
+			//if the current player has won, check which player it is
+			//check which player has won and update the currentstate to the
 			// appropriate gamestate for the winner
-			if (condition) { //TODO: this condition
+			if (currentPlayer.equals(Player.CROSS)) { 
 				currentState = GameState.CROSS_WON; //sets the gamestate to the appropriate state based on the winner
 			}
 			else {
@@ -191,8 +192,8 @@ public class GameMain extends JPanel implements MouseListener {
 			initGame();
 		}
 
-		// TODO: redraw the graphics on the UI
-
+		//redraw the graphics on the UI
+		repaint(); //paints the X or O where the click event happened
 	}
 
 	@Override

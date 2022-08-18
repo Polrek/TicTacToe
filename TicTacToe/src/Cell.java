@@ -12,10 +12,11 @@ public class Cell {
 	/** Constructor to initialise this cell with the specified row and col */
 	public Cell(int row, int col) {
 
-		// TODO: Initialise the variables row, col
-
-		// TODO: call the method that sets the cell content to EMPTY
-
+		//Initialise the variables row, col
+		col = this.col;
+		row = this.row;
+		//call the method that sets the cell content to EMPTY
+		clear();
 	}
 
 	/** Paint itself on the graphics canvas, given the Graphics context g */
@@ -43,7 +44,7 @@ public class Cell {
 	/** Set this cell's content to EMPTY */
 	public void clear() {
 
-		// TODO: Set the value of content to Empty (Remember this is an enum)
+		//Set the value of content to Empty (Remember this is an enum)
 		content = Player.EMPTY; //?
 	}
 
