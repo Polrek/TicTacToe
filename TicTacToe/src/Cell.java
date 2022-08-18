@@ -13,8 +13,8 @@ public class Cell {
 	public Cell(int row, int col) {
 
 		//Initialise the variables row, col
-		col = this.col;
-		row = this.row;
+		this.col = col;
+		this.row = row;
 		//call the method that sets the cell content to EMPTY
 		clear();
 	}
