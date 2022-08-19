@@ -44,7 +44,7 @@ public class Board {
 	/**
 	 * Return true if the current player "thePlayer" has won after making their move
 	 */
-	public boolean hasWon(Player thePlayer, int playerRow, int playerCol) {
+	public boolean hasWon(Player thePlayer, int playerRow, int playerCol) { //TODO: The rows and the diags work for win states. Col's dont
 		// check if player has 3-in-that-row
 		if (cells[playerRow][0].content == thePlayer && cells[playerRow][1].content == thePlayer
 				&& cells[playerRow][2].content == thePlayer)
@@ -53,8 +53,8 @@ public class Board {
 		// Check if the player has 3 in the playerCol.
 		// Hint: Use the row code above as a starting point, remember that it goes
 		// cells[row][column]
-		if (cells[playerCol][0].content == thePlayer && cells[playerCol][1].content == thePlayer
-				&& cells[playerCol][2].content == thePlayer)
+		if (cells[0][playerCol].content == thePlayer && cells[1][playerCol].content == thePlayer
+				&& cells[2][playerCol].content == thePlayer)
 			return true;
 
 		// 3-in-the-diagonal
