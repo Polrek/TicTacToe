@@ -44,7 +44,7 @@ public class GameMain extends JPanel implements MouseListener {
 		// listener to 'this'.
 		addMouseListener(this);
 		// TODO: Setup the status bar (JLabel) to display status message
-		statusBar = new JLabel("Welcome to the game!"); //TODO: Unsure what to put here, get the game working properly then come back to it
+		statusBar = new JLabel("Welcome to the game!");
 		statusBar.setFont(new Font(Font.DIALOG_INPUT, Font.BOLD, 14));
 		statusBar.setBorder(BorderFactory.createEmptyBorder(2, 5, 4, 5));
 		statusBar.setOpaque(true);

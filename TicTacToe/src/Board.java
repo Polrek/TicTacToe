@@ -44,7 +44,7 @@ public class Board {
 	/**
 	 * Return true if the current player "thePlayer" has won after making their move
 	 */
-	public boolean hasWon(Player thePlayer, int playerRow, int playerCol) { //TODO: The rows and the diags work for win states. Col's dont
+	public boolean hasWon(Player thePlayer, int playerRow, int playerCol) { 
 		// check if player has 3-in-that-row
 		if (cells[playerRow][0].content == thePlayer && cells[playerRow][1].content == thePlayer
 				&& cells[playerRow][2].content == thePlayer)
