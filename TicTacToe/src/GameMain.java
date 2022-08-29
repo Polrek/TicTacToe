@@ -2,11 +2,11 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 
+@SuppressWarnings("serial") // Suppresses the serialisation warning
 public class GameMain extends JPanel implements MouseListener {
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = 1L; //resolve the warning -_-
 	// Constants for game
 	// number of ROWS by COLS cell constants
 	public static final int ROWS = 3;
@@ -33,7 +33,7 @@ public class GameMain extends JPanel implements MouseListener {
 
 	// the current player
 	private Player currentPlayer;
-	
+
 	// for displaying game status message
 	private JLabel statusBar;
 
@@ -44,7 +44,7 @@ public class GameMain extends JPanel implements MouseListener {
 		// listener to 'this'.
 		addMouseListener(this);
 		// TODO: Setup the status bar (JLabel) to display status message
-		statusBar = new JLabel("Welcome to the game!");
+		statusBar = new JLabel("");
 		statusBar.setFont(new Font(Font.DIALOG_INPUT, Font.BOLD, 14));
 		statusBar.setBorder(BorderFactory.createEmptyBorder(2, 5, 4, 5));
 		statusBar.setOpaque(true);
@@ -59,7 +59,7 @@ public class GameMain extends JPanel implements MouseListener {
 		// Create a new instance of the game "Board"class. HINT check the
 		// variables above for the correct name
 		board = new Board();
-		
+
 		// call the method to initialise the game board
 		initGame();
 	}
@@ -73,13 +73,16 @@ public class GameMain extends JPanel implements MouseListener {
 
 				// create the new GameMain panel and add it to the frame
 				GameMain panel = new GameMain();
-				frame.add(panel); //or setContentPane?
+				frame.add(panel); // or setContentPane?
 
 				// set the default close operation of the frame to exit_on_close
-				frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); //use the jFrame oracle doc to try and understand what this is doing //also, is this WindowConstants.EXIT... ?
-				frame.pack(); //Causes this Window to be sized to fit the preferred size and layouts of its subcomponents.
-				frame.setLocationRelativeTo(null); //sets the location on the screen. null means centered
-				frame.setVisible(true); //makes the window visible (quite useful for this application)
+				frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); // use the jFrame oracle doc to try and understand
+																		// what this is doing //also, is this
+																		// WindowConstants.EXIT... ?
+				frame.pack(); // Causes this Window to be sized to fit the preferred size and layouts of its
+								// subcomponents.
+				frame.setLocationRelativeTo(null); // sets the location on the screen. null means centred
+				frame.setVisible(true); // makes the window visible (quite useful for this application)
 			}
 		});
 	}
@@ -100,7 +103,7 @@ public class GameMain extends JPanel implements MouseListener {
 				statusBar.setText("X's turn to play");
 			} else {
 				statusBar.setText("O's turn to play");
-				//use the status bar to display the message "O"'s Turn
+				// use the status bar to display the message "O"'s Turn
 			}
 		} else if (currentState == GameState.DRAW) {
 			statusBar.setForeground(Color.RED);
@@ -138,23 +141,23 @@ public class GameMain extends JPanel implements MouseListener {
 	 */
 	public void updateGame(Player thePlayer, int row, int col) {
 		// check for win after play
-		if (board.hasWon(thePlayer, row, col)) { //thePlayer is the current player //if the current player has won, check which player it is //check which player has won and update the currentstate to the// appropriate gamestate for the winner
+		if (board.hasWon(thePlayer, row, col)) { // thePlayer is the current player //if the current player has won,
+													// check which player it is //check which player has won and update
+													// the currentstate to the// appropriate gamestate for the winner
 			if (currentPlayer.equals(Player.CROSS)) {
-				currentState = GameState.CROSS_WON; //sets the gamestate to the appropriate state based on the winner
-			}
-			else if (currentPlayer.equals(Player.NOUGHT)) {
+				currentState = GameState.CROSS_WON; // sets the gamestate to the appropriate state based on the winner
+			} else if (currentPlayer.equals(Player.NOUGHT)) {
 				currentState = GameState.NOUGHT_WON;
 			}
-	}
-	
-		 else if (board.isDraw()) {
+		}
+
+		else if (board.isDraw()) {
 
 			// set the currentstate to the draw gamestate
 			currentState = GameState.DRAW;
 		}
 	}
-		// otherwise no change to current state of playing
-	
+	// otherwise no change to current state of playing
 
 	/**
 	 * Event handler for the mouse click on the JPanel. If selected cell is valid
@@ -191,8 +194,8 @@ public class GameMain extends JPanel implements MouseListener {
 			initGame();
 		}
 
-		//redraw the graphics on the UI
-		repaint(); //paints the X or O where the click event happened
+		// redraw the graphics on the UI
+		repaint(); // paints the X or O where the click event happened
 	}
 
 	@Override
@@ -218,5 +221,5 @@ public class GameMain extends JPanel implements MouseListener {
 		// Auto-generated, event not used
 
 	}
-	
+
 }

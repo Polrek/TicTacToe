@@ -37,8 +37,7 @@ public class Board {
 		return true;
 		}
 		
-		// you got to here, meaning the if above looped through, none of the cells were
-		// empty, so isDraw() returns true
+		// none of the cells were empty, so isDraw() returns true
 	 
 
 	/**
@@ -64,6 +63,8 @@ public class Board {
 		// Check the diagonal in the other direction
 		if (cells[0][2].content == thePlayer && cells[1][1].content == thePlayer && cells[2][0].content == thePlayer)
 			return true;
+		
+		//thoughts: expand to be dynamic so you could have a 4x4, 5x5 game, etc
 
 		// no winner, keep playing
 		return false;

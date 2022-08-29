@@ -12,10 +12,10 @@ public class Cell {
 	/** Constructor to initialise this cell with the specified row and col */
 	public Cell(int row, int col) {
 
-		//Initialise the variables row, col
+		// Initialise the variables row, col
 		this.col = col;
 		this.row = row;
-		//call the method that sets the cell content to EMPTY
+		// call the method that sets the cell content to EMPTY
 		clear();
 	}
 
@@ -33,19 +33,19 @@ public class Cell {
 			graphic2D.setColor(Color.RED);
 			int x2 = (col + 1) * GameMain.CELL_SIZE - GameMain.CELL_PADDING;
 			int y2 = (row + 1) * GameMain.CELL_SIZE - GameMain.CELL_PADDING;
-			graphic2D.drawLine(x1, y1, x2, y2);
-			graphic2D.drawLine(x2, y1, x1, y2);
+			graphic2D.drawLine(x1, y1, x2, y2); // draws the first line of the X
+			graphic2D.drawLine(x2, y1, x1, y2); // draws the second line of the X
 		} else if (content == Player.NOUGHT) {
 			graphic2D.setColor(Color.BLUE);
-			graphic2D.drawOval(x1, y1, GameMain.SYMBOL_SIZE, GameMain.SYMBOL_SIZE);
+			graphic2D.drawOval(x1, y1, GameMain.SYMBOL_SIZE, GameMain.SYMBOL_SIZE); // draws the circle
 		}
 	}
 
 	/** Set this cell's content to EMPTY */
 	public void clear() {
 
-		//Set the value of content to Empty (Remember this is an enum)
-		content = Player.EMPTY; //?
+		// Set the value of content to Empty (Remember this is an enum)
+		content = Player.EMPTY; // ?
 	}
 
 }
